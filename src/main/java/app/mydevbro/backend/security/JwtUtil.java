@@ -24,9 +24,8 @@ public class JwtUtil {
     }
 
     public String validateAndGetSubject(String token) {
-        Claims claims = Jwts.parserBuilder()
+        Claims claims = Jwts.parser()
                 .setSigningKey(key)
-                .build()
                 .parseClaimsJws(token)
                 .getBody();
         return claims.getSubject();
