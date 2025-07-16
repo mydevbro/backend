@@ -1,0 +1,1 @@
+https://start.spring.io/#!type=maven-project&language=java&platformVersion=3.5.3&packaging=jar&jvmVersion=17&groupId=app.mydevbro&artifactId=mydevbro&name=mydevbro&description=MyDevBro%20Website%20Backend&packageName=app.mydevbro.backend&dependencies=security,web,data-jpa,mysql,lombok,validation,devtools
