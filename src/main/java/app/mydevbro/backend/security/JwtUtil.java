@@ -15,6 +15,7 @@ public class JwtUtil {
     private final long expirationMs = 86400000; // 1 day
 
     public String generateToken(String subject) {
+
         return Jwts.builder()
                 .setSubject(subject)
                 .setIssuedAt(new Date())
