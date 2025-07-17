@@ -12,10 +12,10 @@ import java.util.Date;
 @Component
 public class JwtUtil {
     private final Key key = Keys.secretKeyFor(SignatureAlgorithm.HS256);
+    private final long expirationMs = 86400000; // 1 day
 
     public String generateToken(String subject) {
-        // 1 day
-        long expirationMs = 86400000;
+
         return Jwts.builder()
                 .setSubject(subject)
                 .setIssuedAt(new Date())
@@ -25,12 +25,10 @@ public class JwtUtil {
     }
 
     public String validateAndGetSubject(String token) {
-        Claims claims = Jwts.parserBuilder()
+        Claims claims = Jwts.parser()
                 .setSigningKey(key)
-                .build()
                 .parseClaimsJws(token)
                 .getBody();
-
         return claims.getSubject();
     }
 }
